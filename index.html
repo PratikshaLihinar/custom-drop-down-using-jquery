@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h4>Custome DropDown List </h4>
+    <!-- <div class="dropdown-list">
+        <div class="selected-option">
+            <p>Select Day</p>
+        </div>
+        <div class="select-option-card">
+            <ul>
+                <li>Monday</li>
+                <li>Thuesday</li>
+                <li>Wednesday</li>
+                <li>Thursday</li>
+                <li>Saturday</li>
+                <li>Sunday</li>
+            </ul>
+        </div>
+    </div>
+    <br><br><br><br><br><br> -->
+    <div class="dropdown-list discover-option col-lg-3">
+        <div class="selected-option" name="Discover-all" class="discover-option">
+            <p>Bangalore</p>
+        </div>
+        <div class="select-option-card">
+            <ul>
+                <li>Discover all</li>
+                <li>option1</li>
+                <li>option2</li>
+                
+            </ul>
+        </div>
+    </div>
+    
+    <script src="js/jquery-latest.min.js"></script>
+    
+    <script>
+        $(".selected-option").click(function(event){
+            event.stopPropagation();
+            $(".select-option-card").stop().fadeOut("fast");
+            $(this).next(".select-option-card").stop().fadeToggle("fast");
+        });
+
+        $(".select-option-card li").click(function(event){
+            var x =$(this).text();
+            $(this).parents(".select-option-card").hide();
+            $(this).parents(".dropdown-list").find(".selected-option p").text(x);
+        });
+        //body click to  close popup
+        $(document).click(function(event){
+            $(".select-option-card").hide();
+        });
+    </script>
+</body>
+</html>
